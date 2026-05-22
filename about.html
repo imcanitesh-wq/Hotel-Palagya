@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Home · Hotel Palagya · The Meaning of Obedience</title>
-<meta name="description" content="Welcome to Hotel Palagya — where Pala and Agya mean 'obedient', a devotion to Nepali hospitality beside Pashupatinath in Kathmandu."/>
+<title>About · Hotel Palagya · The Meaning of Obedience</title>
+<meta name="description" content="The story of Hotel Palagya — where Pala and Agya become 'obedient', a devotion to Nepali hospitality beside Pashupatinath in Kathmandu."/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Lora:ital,wght@0,400..600;1,400..500&display=swap" rel="stylesheet">
 
 <style>
-/* ═══ Shared design system (matches about.html) ═══ */
+/* ═══ Shared design system (matches index.html) ═══ */
 :root{
   --cream:#F7F1E8;--cream2:#EFE6D6;--terracotta:#B8543A;--terracotta2:#9E4530;
   --maroon:#5C1F1B;--maroon2:#451714;--gold:#C9A961;--gold2:#B89449;
@@ -58,14 +58,14 @@ nav:not(.solid) .nav-links a{color:var(--on-dark);}
 nav.solid .nav-burger span{background:var(--text);}
 
 /* Page hero */
-.page-hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(to bottom,rgba(26,20,16,.45),rgba(92,31,27,.65)),url('assets/hero/hero_dawan_Pashupatinath%20Temple.jpg');background-size:cover;background-position:center;transform:scale(1.1);animation:heroZoom 12s var(--ease-soft) forwards;}
+.page-hero{position:relative;min-height:70vh;display:flex;align-items:center;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(to bottom,rgba(26,20,16,.4),rgba(92,31,27,.6)),url('assets/hero/hero_hotel%20facade.jpg');background-size:cover;background-position:center;transform:scale(1.1);animation:heroZoom 12s var(--ease-soft) forwards;}
 @keyframes heroZoom{to{transform:scale(1)}}
 .page-hero-content{position:relative;z-index:2;padding:0 48px;max-width:900px;color:var(--on-dark);}
 .page-hero .eyebrow span{color:var(--gold);}
-.page-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.02;letter-spacing:-.02em;opacity:0;animation:heroUp 1s var(--ease) 1.4s forwards;}
+.page-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,6vw,5rem);line-height:1.04;letter-spacing:-.02em;opacity:0;animation:heroUp 1s var(--ease) 1.4s forwards;}
 .page-hero h1 em{font-style:italic;color:var(--gold);}
-.page-hero p{font-size:1.2rem;color:var(--on-dark2);max-width:580px;margin-top:22px;opacity:0;animation:heroUp 1s var(--ease) 1.6s forwards;line-height:1.8;}
+.page-hero p{font-size:1.15rem;color:var(--on-dark2);max-width:540px;margin-top:22px;opacity:0;animation:heroUp 1s var(--ease) 1.6s forwards;}
 .page-hero .eyebrow{opacity:0;animation:heroUp 1s var(--ease) 1.2s forwards;}
 @keyframes heroUp{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:translateY(0)}}
 
@@ -111,123 +111,15 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 .story-text{font-size:1.12rem;color:var(--text2);max-width:640px;margin:0 auto;line-height:1.9;}
 .story-text strong{color:var(--maroon);font-weight:600;}
 
-/* Rooms grid (matching about.html styling ecosystem) */
-.rooms-section{background:var(--cream2);}
-.rooms-head{text-align:center;max-width:680px;margin:0 auto 70px;}
-.rooms-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.room-card {
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .5s var(--ease), box-shadow .5s;
-}
-.room-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(92,31,27,.08);
-}
-.room-img-wrap {
-  position: relative;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-}
-.room-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .8s var(--ease);
-}
-.room-card:hover .room-img-wrap img {
-  transform: scale(1.06);
-}
-.room-tag {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: var(--maroon);
-  color: var(--gold);
-  font-family: var(--body);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-weight: 500;
-  z-index: 2;
-}
-.room-info {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.room-info h3 {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: var(--maroon);
-  margin-bottom: 12px;
-  font-weight: 400;
-}
-.room-info p {
-  color: var(--text2);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  margin-bottom: 24px;
-  flex: 1;
-}
-.room-feats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-.room-feat {
-  font-size: 0.75rem;
-  color: var(--text2);
-  background: var(--cream);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-weight: 500;
-  border: 1px solid var(--border);
-}
-.room-price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
-}
-.room-price {
-  font-family: var(--display);
-  font-size: 1.6rem;
-  color: var(--terracotta);
-  font-weight: 500;
-}
-.room-price span {
-  font-family: var(--body);
-  font-size: 0.8rem;
-  color: var(--text3);
-}
-.room-btn {
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--terracotta);
-  transition: color 0.3s, transform 0.3s;
-}
-.room-btn:hover {
-  color: var(--maroon);
-  transform: translateX(4px);
-}
+/* Values */
+.values{background:var(--cream);}
+.values-head{text-align:center;max-width:680px;margin:0 auto 70px;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1200px;margin:0 auto;}
+.value-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r-lg);padding:44px 36px;transition:transform .5s var(--ease),box-shadow .5s;}
+.value-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(92,31,27,.1);}
+.value-icon{width:56px;height:56px;color:var(--terracotta);margin-bottom:24px;}
+.value-card h3{font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--maroon);margin-bottom:14px;}
+.value-card p{color:var(--text2);font-size:1rem;line-height:1.8;}
 
 /* Stats band */
 .stats{background:var(--maroon);color:var(--on-dark);overflow:hidden;}
@@ -235,6 +127,11 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;max-width:1200px;margin:0 auto;position:relative;z-index:1;text-align:center;}
 .stat-num{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,5vw,4rem);color:var(--gold);line-height:1;}
 .stat-label{font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark2);margin-top:12px;}
+
+/* Quote band */
+.quote-band{background:var(--paper);text-align:center;}
+.quote-band .q{font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(1.8rem,3.6vw,2.8rem);color:var(--maroon);max-width:880px;margin:0 auto;line-height:1.4;}
+.quote-band .q::before,.quote-band .q::after{content:'"';color:var(--gold);}
 
 /* CTA + footer (shared) */
 .cta{position:relative;text-align:center;padding:130px 48px;overflow:hidden;background-image:linear-gradient(rgba(26,20,16,.62),rgba(92,31,27,.7)),url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2400&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed;}
@@ -274,7 +171,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
   .nav-links{display:none;}.nav-burger{display:flex;}
   .page-hero-content{padding:0 32px;}
   .story-split{grid-template-columns:1fr;gap:48px;}
-  .rooms-grid{grid-template-columns:1fr 1fr;max-width:760px;margin:0 auto;}
+  .values-grid{grid-template-columns:1fr;max-width:520px;}
   .stats-grid{grid-template-columns:1fr 1fr;gap:48px 24px;}
   .foot-grid{grid-template-columns:1fr 1fr;gap:36px;}
   nav.open .nav-links{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--maroon);padding:120px 40px;gap:8px;z-index:990;}
@@ -283,10 +180,9 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
   nav.open .nav-burger span:nth-child(2){opacity:0;}
   nav.open .nav-burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 }
-@media(max-width:768px){
+@media(max-width:680px){
   nav,section{padding-left:22px;padding-right:22px;}section{padding-top:80px;padding-bottom:80px;}
   .page-hero-content{padding:0 22px;}
-  .rooms-grid{grid-template-columns:1fr;max-width:480px;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .foot-grid{grid-template-columns:1fr;}
 }
@@ -305,8 +201,8 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 <nav id="nav">
   <a href="index.html" class="nav-logo"><span class="deva">पलाग्या</span><span class="name">Hotel Palagya</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
     <li><a href="rooms.html">Rooms</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="reviews.html">Reviews</a></li>
@@ -322,24 +218,20 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 <header class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
-    <div class="eyebrow"><span class="line"></span><span>Welcome to sanctuary</span></div>
-    <h1>You explore, <em>we welcome.</em></h1>
-    <p>A serene refuge of Nepali hospitality in Tilganga, Kathmandu. Walk to the sacred Pashupatinath Temple or arrive from the airport in minutes.</p>
-    <div style="margin-top:32px;display:flex;gap:16px;">
-      <a href="rooms.html" class="btn-primary">Explore Rooms</a>
-      <a href="reservation.html" class="btn-ghost">Reserve Now</a>
-    </div>
+    <div class="eyebrow"><span class="line"></span><span>Our Story</span></div>
+    <h1>A devotion, <em>handed down</em></h1>
+    <p>For decades, Hotel Palagya has welcomed travellers, pilgrims, and dreamers to the threshold of the sacred.</p>
   </div>
 </header>
 
-<!-- Brand intro -->
+<!-- Brand equation -->
 <section class="story">
   <div class="story-inner">
     <div class="eyebrow center" data-reveal><span class="line"></span><span>The Meaning</span><span class="line"></span></div>
     <div class="story-equation" id="equation">
       <span class="word w1">Pala</span><span class="plus">+</span><span class="word w2">Agya</span><span class="eq">=</span><span class="word w3 result">Palagya</span>
     </div>
-    <p class="story-text" data-reveal data-delay="2">At Hotel Palagya, hospitality is not a service; it is a devotion. The name signifies <strong>obedience</strong> — a dedication to anticipating and honoring your comfort. Experience a contemporary sanctuary designed for pilgrims, business travellers, and families alike.</p>
+    <p class="story-text" data-reveal data-delay="2">The name carries a single, quiet promise: <strong>obedience</strong> — not servitude, but a willing devotion to the comfort of others. It is the oldest form of Nepali hospitality, where a guest is treated as a manifestation of the divine. <em>Atithi Devo Bhava</em> — the guest is god.</p>
   </div>
 </section>
 
@@ -349,96 +241,42 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
   <span class="strip"></span>
 </div>
 
-<!-- Rooms teaser -->
-<section class="rooms-section">
-  <div class="rooms-head" data-reveal>
-    <div class="eyebrow center"><span class="line"></span><span>Accommodations</span><span class="line"></span></div>
-    <h2 class="sh">Stay your <em>own way</em></h2>
-  </div>
-  <div class="rooms-grid">
-    <!-- Deluxe Room -->
-    <div class="room-card" data-reveal data-delay="1">
-      <div class="room-img-wrap">
-        <span class="room-tag">Featured</span>
-        <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room"/>
-      </div>
-      <div class="room-info">
-        <h3>Deluxe Room</h3>
-        <p>Our flagship category. Bright, air-conditioned rooms featuring premium woodwork, a plush king or twin bed configuration, and beautiful views of the green golf course and temple surroundings.</p>
-        <div class="room-feats">
-          <span class="room-feat">👑 King/Twin</span>
-          <span class="room-feat">❄️ Air Con</span>
-          <span class="room-feat">🏔️ View</span>
-        </div>
-        <div class="room-price-row">
-          <div class="room-price">$45 <span>/ night</span></div>
-          <a href="rooms.html" class="room-btn">View Details →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Superior Deluxe Room -->
-    <div class="room-card" data-reveal data-delay="2">
-      <div class="room-img-wrap">
-        <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room"/>
-      </div>
-      <div class="room-info">
-        <h3>Superior Deluxe Room</h3>
-        <p>Spacious, elegantly furnished room featuring high-speed Wi-Fi, premium linens, 24-hour hot water, and a cozy study setup. Crafted for business executives and couples seeking modern luxury.</p>
-        <div class="room-feats">
-          <span class="room-feat">👑 Queen Bed</span>
-          <span class="room-feat">💻 Desk Setup</span>
-          <span class="room-feat">🚿 Hot Water</span>
-        </div>
-        <div class="room-price-row">
-          <div class="room-price">$35 <span>/ night</span></div>
-          <a href="rooms.html" class="room-btn">View Details →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quad Deluxe Room -->
-    <div class="room-card" data-reveal data-delay="3">
-      <div class="room-img-wrap">
-        <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room"/>
-      </div>
-      <div class="room-info">
-        <h3>Quad Deluxe Room</h3>
-        <p>Perfect for families and group travels. Accommodates up to four guests comfortably with flexible bedding, ample walking space, modern styling, and an attached luxury bathroom.</p>
-        <div class="room-feats">
-          <span class="room-feat">👨‍👩‍👧‍👦 Sleeps 4</span>
-          <span class="room-feat">🪵 Wood Floor</span>
-          <span class="room-feat">✨ Premium</span>
-        </div>
-        <div class="room-price-row">
-          <div class="room-price">$55 <span>/ night</span></div>
-          <a href="rooms.html" class="room-btn">View Details →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider">
-  <span class="strip"></span>
-  <svg viewBox="0 0 48 48" fill="currentColor"><path d="M24 2l5.5 13L43 18l-10 9.5L36 41l-12-7-12 7 3-13.5L5 18l13.5-3z"/></svg>
-  <span class="strip"></span>
-</div>
-
-<!-- Dining split -->
+<!-- Story split -->
 <section>
   <div class="story-split">
     <div class="img-wrap" data-reveal="left">
-      <img src="assets/restaurant/restaurant_view_pashupatinath.JPG" alt="Palagya Rooftop Restaurant"/>
+      <img src="assets/reception/reception_lobby_area.JPG" alt="Hotel Palagya Reception"/>
     </div>
     <div data-reveal="right">
-      <div class="eyebrow"><span class="line"></span><span>Rooftop Dining</span></div>
-      <h2 class="sh">A taste of local <em>and international</em></h2>
-      <p>Unwind at our rooftop restaurant, enjoying panoramic views of the sacred Pashupatinath Temple and the lush golf course. Our culinary team serves exquisite local tastes, traditional Nepali flavors, and popular international cuisines in a warm, welcoming setting.</p>
-      <p>Whether it is a relaxed morning breakfast, an afternoon gathering, or an evening enjoying signature cocktails and premium hookah lounge vibes, Palagya's rooftop provides a perfect, serene escape.</p>
-      <div style="margin-top:24px;">
-        <a href="reservation.html" class="btn-primary">Reserve a Table</a>
-      </div>
+      <div class="eyebrow"><span class="line"></span><span>Welcome</span></div>
+      <h2 class="sh">Warmth, at its <em>gracious best</em></h2>
+      <p>Hotel Palagya invites you to experience the warmth of Nepalese hospitality at its most gracious. Bask in the courtesy, comfort, and care that come from a staff with decades of operational experience in some of the finest hotels and restaurants in the country.</p>
+      <p>Well-appointed suites and rooms, facilities for seminars, conferences, and banquets — all <strong>just five minutes' walk from the world-famous Pashupatinath temple</strong> and the international airport. Whether you arrive for business, celebration, or simply pleasure, Palagya is the perfect choice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values">
+  <div class="values-head" data-reveal>
+    <div class="eyebrow center"><span class="line"></span><span>What We Stand For</span><span class="line"></span></div>
+    <h2 class="sh">Three quiet <em>devotions</em></h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card" data-reveal data-delay="1">
+      <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.5-9-9c-1.5-3.5 1-7 4.5-6.5C9 6 12 9 12 9s3-3 4.5-3.5C20 5 22.5 8.5 21 12c-2 4.5-9 9-9 9z"/></svg>
+      <h3>Courtesy</h3>
+      <p>Service offered before it is asked for — anticipating the needs of every guest with genuine, unhurried care.</p>
+    </div>
+    <div class="value-card" data-reveal data-delay="2">
+      <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-7h6v7"/></svg>
+      <h3>Comfort</h3>
+      <p>Rooms appointed for rest, with 24-hour hot water, WiFi, and the calm that turns a hotel into a sanctuary.</p>
+    </div>
+    <div class="value-card" data-reveal data-delay="3">
+      <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <h3>Care</h3>
+      <p>Decades of experience poured into every detail, so that your only task is to arrive and let the city fall away.</p>
     </div>
   </div>
 </section>
@@ -454,8 +292,8 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 </section>
 
 <!-- Quote -->
-<section class="quote-band" style="background:var(--paper);text-align:center;padding:80px 48px;">
-  <p class="q" data-reveal style="font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(1.8rem,3.6vw,2.8rem);color:var(--maroon);max-width:880px;margin:0 auto;line-height:1.4;">To stay at Palagya is to be received, not merely accommodated.</p>
+<section class="quote-band">
+  <p class="q" data-reveal>To stay at Palagya is to be received, not merely accommodated.</p>
 </section>
 
 <!-- CTA -->

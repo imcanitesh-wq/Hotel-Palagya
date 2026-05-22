@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Home · Hotel Palagya · The Meaning of Obedience</title>
-<meta name="description" content="Welcome to Hotel Palagya — where Pala and Agya mean 'obedient', a devotion to Nepali hospitality beside Pashupatinath in Kathmandu."/>
+<title>Rooms · Hotel Palagya · The Meaning of Obedience</title>
+<meta name="description" content="Explore our Deluxe, Superior Deluxe, and Quad Deluxe Rooms — sanctuary rooms designed for comfort and peace beside Pashupatinath Temple."/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,14 +58,14 @@ nav:not(.solid) .nav-links a{color:var(--on-dark);}
 nav.solid .nav-burger span{background:var(--text);}
 
 /* Page hero */
-.page-hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;}
-.page-hero-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(to bottom,rgba(26,20,16,.45),rgba(92,31,27,.65)),url('assets/hero/hero_dawan_Pashupatinath%20Temple.jpg');background-size:cover;background-position:center;transform:scale(1.1);animation:heroZoom 12s var(--ease-soft) forwards;}
+.page-hero{position:relative;min-height:70vh;display:flex;align-items:center;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(to bottom,rgba(26,20,16,.4),rgba(92,31,27,.6)),url('assets/rooms/deluxe_room_6.JPG');background-size:cover;background-position:center;transform:scale(1.1);animation:heroZoom 12s var(--ease-soft) forwards;}
 @keyframes heroZoom{to{transform:scale(1)}}
 .page-hero-content{position:relative;z-index:2;padding:0 48px;max-width:900px;color:var(--on-dark);}
 .page-hero .eyebrow span{color:var(--gold);}
-.page-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.02;letter-spacing:-.02em;opacity:0;animation:heroUp 1s var(--ease) 1.4s forwards;}
+.page-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,6vw,5rem);line-height:1.04;letter-spacing:-.02em;opacity:0;animation:heroUp 1s var(--ease) 1.4s forwards;}
 .page-hero h1 em{font-style:italic;color:var(--gold);}
-.page-hero p{font-size:1.2rem;color:var(--on-dark2);max-width:580px;margin-top:22px;opacity:0;animation:heroUp 1s var(--ease) 1.6s forwards;line-height:1.8;}
+.page-hero p{font-size:1.15rem;color:var(--on-dark2);max-width:540px;margin-top:22px;opacity:0;animation:heroUp 1s var(--ease) 1.6s forwards;}
 .page-hero .eyebrow{opacity:0;animation:heroUp 1s var(--ease) 1.2s forwards;}
 @keyframes heroUp{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:translateY(0)}}
 
@@ -80,161 +80,122 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 
 [data-reveal]{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease);}
 [data-reveal].in{opacity:1;transform:none;}
-[data-reveal="left"]{transform:translateX(-50px);}[data-reveal="left"].in{transform:none;}
-[data-reveal="right"]{transform:translateX(50px);}[data-reveal="right"].in{transform:none;}
-[data-delay="1"]{transition-delay:.12s;}[data-delay="2"]{transition-delay:.24s;}[data-delay="3"]{transition-delay:.36s;}[data-delay="4"]{transition-delay:.48s;}
 
 .divider{display:flex;align-items:center;justify-content:center;gap:18px;padding:0 48px;}
 .divider .strip{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);max-width:280px;}
 .divider svg{width:46px;height:46px;color:var(--gold);opacity:.8;}
 
-/* Story split */
-.story-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1280px;margin:0 auto;}
-.story-split .img-wrap{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;}
-.story-split .img-wrap img{width:100%;height:100%;object-fit:cover;}
-.story-split .img-wrap::after{content:'पलाग्या';position:absolute;bottom:24px;right:28px;font-family:var(--display);font-size:2rem;color:var(--cream);opacity:.8;}
-.story-split h2{margin-bottom:26px;}
-.story-split p{color:var(--text2);font-size:1.08rem;line-height:1.9;margin-bottom:20px;}
-.story-split p strong{color:var(--maroon);}
-
-/* Equation */
-.story{background:var(--paper);text-align:center;overflow:hidden;}
-.story-inner{max-width:880px;margin:0 auto;}
-.story-equation{font-family:var(--display);font-weight:300;font-size:clamp(1.8rem,4vw,3rem);color:var(--maroon);margin:30px 0;line-height:1.4;}
-.story-equation .word{display:inline-block;opacity:0;transform:translateY(20px);transition:all .7s var(--ease);}
-.story-equation.in .word{opacity:1;transform:none;}
-.story-equation.in .w1{transition-delay:.1s}.story-equation.in .w2{transition-delay:.35s}.story-equation.in .w3{transition-delay:.6s}
-.story-equation .plus,.story-equation .eq{color:var(--gold);font-style:normal;margin:0 .2em;}
-.story-equation .result{font-style:italic;color:var(--terracotta);position:relative;}
-.story-equation .result::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:width .8s var(--ease) .9s;}
-.story-equation.in .result::after{width:100%;}
-.story-text{font-size:1.12rem;color:var(--text2);max-width:640px;margin:0 auto;line-height:1.9;}
-.story-text strong{color:var(--maroon);font-weight:600;}
-
-/* Rooms grid (matching about.html styling ecosystem) */
-.rooms-section{background:var(--cream2);}
-.rooms-head{text-align:center;max-width:680px;margin:0 auto 70px;}
-.rooms-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
+/* Rooms detailed listing */
+.room-showcase {
   max-width: 1200px;
   margin: 0 auto;
-}
-.room-card {
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform .5s var(--ease), box-shadow .5s;
+  gap: 120px;
 }
-.room-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(92,31,27,.08);
+.room-row {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
-.room-img-wrap {
-  position: relative;
+.room-row:nth-child(even) {
+  grid-template-columns: 1fr 1.25fr;
+}
+.room-row:nth-child(even) .room-gallery-wrap {
+  order: 2;
+}
+.room-gallery-wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+.room-main-img {
   aspect-ratio: 4/3;
+  border-radius: var(--r-lg);
   overflow: hidden;
+  border: 1px solid var(--border);
 }
-.room-img-wrap img {
+.room-main-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .8s var(--ease);
+  transition: transform 0.8s var(--ease);
 }
-.room-card:hover .room-img-wrap img {
-  transform: scale(1.06);
+.room-main-img:hover img {
+  transform: scale(1.04);
 }
-.room-tag {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: var(--maroon);
-  color: var(--gold);
-  font-family: var(--body);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-weight: 500;
-  z-index: 2;
-}
-.room-info {
-  padding: 30px;
+.room-side-imgs {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 14px;
 }
-.room-info h3 {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: var(--maroon);
-  margin-bottom: 12px;
-  font-weight: 400;
-}
-.room-info p {
-  color: var(--text2);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  margin-bottom: 24px;
-  flex: 1;
-}
-.room-feats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-.room-feat {
-  font-size: 0.75rem;
-  color: var(--text2);
-  background: var(--cream);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-weight: 500;
+.room-side-img {
+  aspect-ratio: 4/3;
+  border-radius: var(--r-md);
+  overflow: hidden;
   border: 1px solid var(--border);
+  flex: 1;
 }
-.room-price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
+.room-side-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
 }
-.room-price {
+.room-side-img:hover img {
+  transform: scale(1.06);
+}
+.room-details h3 {
   font-family: var(--display);
-  font-size: 1.6rem;
-  color: var(--terracotta);
-  font-weight: 500;
+  font-size: 2.6rem;
+  color: var(--maroon);
+  margin-bottom: 18px;
+  font-weight: 300;
 }
-.room-price span {
+.room-details h3 em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.room-details p {
+  color: var(--text2);
+  font-size: 1.06rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.room-details-price {
+  font-family: var(--display);
+  font-size: 2.2rem;
+  color: var(--terracotta);
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+.room-details-price span {
   font-family: var(--body);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text3);
 }
-.room-btn {
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--terracotta);
-  transition: color 0.3s, transform 0.3s;
+.room-amenities-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  margin-bottom: 36px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
 }
-.room-btn:hover {
-  color: var(--maroon);
-  transform: translateX(4px);
+.room-amenity-item {
+  font-size: 0.9rem;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-
-/* Stats band */
-.stats{background:var(--maroon);color:var(--on-dark);overflow:hidden;}
-.stats::before{content:'';position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l8 22 22 8-22 8-8 22-8-22-22-8 22-8z' fill='%23C9A961'/%3E%3C/svg%3E");}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;max-width:1200px;margin:0 auto;position:relative;z-index:1;text-align:center;}
-.stat-num{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,5vw,4rem);color:var(--gold);line-height:1;}
-.stat-label{font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark2);margin-top:12px;}
+.room-amenity-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
 
 /* CTA + footer (shared) */
 .cta{position:relative;text-align:center;padding:130px 48px;overflow:hidden;background-image:linear-gradient(rgba(26,20,16,.62),rgba(92,31,27,.7)),url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2400&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed;}
@@ -273,9 +234,8 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
   nav,section{padding-left:32px;padding-right:32px;}
   .nav-links{display:none;}.nav-burger{display:flex;}
   .page-hero-content{padding:0 32px;}
-  .story-split{grid-template-columns:1fr;gap:48px;}
-  .rooms-grid{grid-template-columns:1fr 1fr;max-width:760px;margin:0 auto;}
-  .stats-grid{grid-template-columns:1fr 1fr;gap:48px 24px;}
+  .room-row, .room-row:nth-child(even) {grid-template-columns:1fr;gap:40px;}
+  .room-row:nth-child(even) .room-gallery-wrap {order: 0;}
   .foot-grid{grid-template-columns:1fr 1fr;gap:36px;}
   nav.open .nav-links{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--maroon);padding:120px 40px;gap:8px;z-index:990;}
   nav.open .nav-links a{color:var(--on-dark);font-size:1.3rem;font-family:var(--display);letter-spacing:.04em;text-transform:none;padding:14px 0;border-bottom:1px solid rgba(247,241,232,.1);}
@@ -286,8 +246,6 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 @media(max-width:768px){
   nav,section{padding-left:22px;padding-right:22px;}section{padding-top:80px;padding-bottom:80px;}
   .page-hero-content{padding:0 22px;}
-  .rooms-grid{grid-template-columns:1fr;max-width:480px;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
   .foot-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -305,9 +263,9 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 <nav id="nav">
   <a href="index.html" class="nav-logo"><span class="deva">पलाग्या</span><span class="name">Hotel Palagya</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="rooms.html" class="active">Rooms</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -322,140 +280,167 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 <header class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-content">
-    <div class="eyebrow"><span class="line"></span><span>Welcome to sanctuary</span></div>
-    <h1>You explore, <em>we welcome.</em></h1>
-    <p>A serene refuge of Nepali hospitality in Tilganga, Kathmandu. Walk to the sacred Pashupatinath Temple or arrive from the airport in minutes.</p>
-    <div style="margin-top:32px;display:flex;gap:16px;">
-      <a href="rooms.html" class="btn-primary">Explore Rooms</a>
-      <a href="reservation.html" class="btn-ghost">Reserve Now</a>
-    </div>
+    <div class="eyebrow"><span class="line"></span><span>Accommodations</span></div>
+    <h1>Spaces crafted for <em>your rest</em></h1>
+    <p>A collection of Deluxe, Superior Deluxe, and Quad Deluxe Rooms detailed with premium wood finishes, attached modern washrooms, and high-speed Wi-Fi.</p>
   </div>
 </header>
 
-<!-- Brand intro -->
-<section class="story">
-  <div class="story-inner">
-    <div class="eyebrow center" data-reveal><span class="line"></span><span>The Meaning</span><span class="line"></span></div>
-    <div class="story-equation" id="equation">
-      <span class="word w1">Pala</span><span class="plus">+</span><span class="word w2">Agya</span><span class="eq">=</span><span class="word w3 result">Palagya</span>
+<!-- Rooms alternate detailed listing -->
+<section style="background: var(--paper);">
+  <div class="room-showcase">
+    
+    <!-- Deluxe Rooms -->
+    <div class="room-row" data-reveal>
+      <div class="room-gallery-wrap">
+        <div class="room-main-img">
+          <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room main angle"/>
+        </div>
+        <div class="room-side-imgs">
+          <div class="room-side-img">
+            <img src="assets/rooms/room_deluxe_2.JPG" alt="Deluxe Room second view"/>
+          </div>
+          <div class="room-side-img">
+            <img src="assets/rooms/room_washroom_1.jpg" alt="Deluxe Room washroom"/>
+          </div>
+        </div>
+      </div>
+      <div class="room-details">
+        <h3>Deluxe <em>Rooms</em></h3>
+        <div class="room-details-price">$45 <span>/ night</span></div>
+        <p>Our flagship Deluxe Rooms represent Hotel Palagya's finest hospitality. Designed with rich hardwood furnishings, individual air conditioning controls, and expansive windows offering serene views of the Tribhuvan Golf Course and Kathmandu valley landscape. Ideal for couples, pilgrims, and business executives.</p>
+        
+        <div class="room-amenities-list">
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 2 18 2 18 6 6 6"></polygon><rect x="3" y="6" width="18" height="16" rx="2"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+            <span>Golf Course / View</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>Air Conditioning</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 17V5a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v12M9 8h6M9 12h6"></path></svg>
+            <span>King or Twin Beds</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+            <span>High-Speed Wi-Fi</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg>
+            <span>LED Smart TV</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>24h Hot Water Shower</span>
+          </div>
+        </div>
+        <a href="reservation.html" class="btn-primary">Reserve Room</a>
+      </div>
     </div>
-    <p class="story-text" data-reveal data-delay="2">At Hotel Palagya, hospitality is not a service; it is a devotion. The name signifies <strong>obedience</strong> — a dedication to anticipating and honoring your comfort. Experience a contemporary sanctuary designed for pilgrims, business travellers, and families alike.</p>
+
+    <!-- Superior Deluxe Rooms -->
+    <div class="room-row" data-reveal>
+      <div class="room-gallery-wrap">
+        <div class="room-main-img">
+          <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room main angle"/>
+        </div>
+        <div class="room-side-imgs">
+          <div class="room-side-img">
+            <img src="assets/rooms/superior_deluxe_room_2.JPG" alt="Superior Deluxe Room desk view"/>
+          </div>
+          <div class="room-side-img">
+            <img src="assets/rooms/room_washroom_2.jpg" alt="Superior Deluxe Room washroom"/>
+          </div>
+        </div>
+      </div>
+      <div class="room-details">
+        <h3>Superior Deluxe <em>Rooms</em></h3>
+        <div class="room-details-price">$35 <span>/ night</span></div>
+        <p>Combining contemporary elegance and practical design, our Superior Deluxe Rooms feature a beautiful layout centered around comfort. Outfitted with plush queen beds, writing desks for work, and state-of-the-art facilities, these rooms are tailor-made for single corporate executives or couples on leisure trips.</p>
+        
+        <div class="room-amenities-list">
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Double Queen Bed</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>Air Conditioning</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Writing Desk & Chair</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+            <span>High-Speed Wi-Fi</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg>
+            <span>LED Smart TV</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>24h Hot Water Shower</span>
+          </div>
+        </div>
+        <a href="reservation.html" class="btn-primary">Reserve Room</a>
+      </div>
+    </div>
+
+    <!-- Quad Deluxe Rooms -->
+    <div class="room-row" data-reveal>
+      <div class="room-gallery-wrap">
+        <div class="room-main-img">
+          <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room main angle"/>
+        </div>
+        <div class="room-side-imgs">
+          <div class="room-side-img">
+            <img src="assets/rooms/quad_deluxe_room_2.JPG" alt="Quad Deluxe Room bed detail"/>
+          </div>
+          <div class="room-side-img">
+            <img src="assets/rooms/room_washroom_1.jpg" alt="Quad Deluxe Room washroom"/>
+          </div>
+        </div>
+      </div>
+      <div class="room-details">
+        <h3>Quad Deluxe <em>Rooms</em></h3>
+        <div class="room-details-price">$55 <span>/ night</span></div>
+        <p>Perfectly accommodating groups of families or friends, the Quad Deluxe Rooms feature generous floor plans with polished parquet wooden flooring. Appointed with flexible double bed arrangements to easily host four guests in comfort, complete with spacious luggage closets and sitting tables.</p>
+        
+        <div class="room-amenities-list">
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>Sleeps 4 Guests</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>Air Conditioning</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>Polished Parquet Floor</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+            <span>High-Speed Wi-Fi</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="M12 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></svg>
+            <span>LED Smart TV</span>
+          </div>
+          <div class="room-amenity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>24h Hot Water Shower</span>
+          </div>
+        </div>
+        <a href="reservation.html" class="btn-primary">Reserve Room</a>
+      </div>
+    </div>
+
   </div>
-</section>
-
-<div class="divider">
-  <span class="strip"></span>
-  <svg viewBox="0 0 48 48" fill="currentColor"><path d="M24 2l5.5 13L43 18l-10 9.5L36 41l-12-7-12 7 3-13.5L5 18l13.5-3z"/></svg>
-  <span class="strip"></span>
-</div>
-
-<!-- Rooms teaser -->
-<section class="rooms-section">
-  <div class="rooms-head" data-reveal>
-    <div class="eyebrow center"><span class="line"></span><span>Accommodations</span><span class="line"></span></div>
-    <h2 class="sh">Stay your <em>own way</em></h2>
-  </div>
-  <div class="rooms-grid">
-    <!-- Deluxe Room -->
-    <div class="room-card" data-reveal data-delay="1">
-      <div class="room-img-wrap">
-        <span class="room-tag">Featured</span>
-        <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room"/>
-      </div>
-      <div class="room-info">
-        <h3>Deluxe Room</h3>
-        <p>Our flagship category. Bright, air-conditioned rooms featuring premium woodwork, a plush king or twin bed configuration, and beautiful views of the green golf course and temple surroundings.</p>
-        <div class="room-feats">
-          <span class="room-feat">👑 King/Twin</span>
-          <span class="room-feat">❄️ Air Con</span>
-          <span class="room-feat">🏔️ View</span>
-        </div>
-        <div class="room-price-row">
-          <div class="room-price">$45 <span>/ night</span></div>
-          <a href="rooms.html" class="room-btn">View Details →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Superior Deluxe Room -->
-    <div class="room-card" data-reveal data-delay="2">
-      <div class="room-img-wrap">
-        <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room"/>
-      </div>
-      <div class="room-info">
-        <h3>Superior Deluxe Room</h3>
-        <p>Spacious, elegantly furnished room featuring high-speed Wi-Fi, premium linens, 24-hour hot water, and a cozy study setup. Crafted for business executives and couples seeking modern luxury.</p>
-        <div class="room-feats">
-          <span class="room-feat">👑 Queen Bed</span>
-          <span class="room-feat">💻 Desk Setup</span>
-          <span class="room-feat">🚿 Hot Water</span>
-        </div>
-        <div class="room-price-row">
-          <div class="room-price">$35 <span>/ night</span></div>
-          <a href="rooms.html" class="room-btn">View Details →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quad Deluxe Room -->
-    <div class="room-card" data-reveal data-delay="3">
-      <div class="room-img-wrap">
-        <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room"/>
-      </div>
-      <div class="room-info">
-        <h3>Quad Deluxe Room</h3>
-        <p>Perfect for families and group travels. Accommodates up to four guests comfortably with flexible bedding, ample walking space, modern styling, and an attached luxury bathroom.</p>
-        <div class="room-feats">
-          <span class="room-feat">👨‍👩‍👧‍👦 Sleeps 4</span>
-          <span class="room-feat">🪵 Wood Floor</span>
-          <span class="room-feat">✨ Premium</span>
-        </div>
-        <div class="room-price-row">
-          <div class="room-price">$55 <span>/ night</span></div>
-          <a href="rooms.html" class="room-btn">View Details →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider">
-  <span class="strip"></span>
-  <svg viewBox="0 0 48 48" fill="currentColor"><path d="M24 2l5.5 13L43 18l-10 9.5L36 41l-12-7-12 7 3-13.5L5 18l13.5-3z"/></svg>
-  <span class="strip"></span>
-</div>
-
-<!-- Dining split -->
-<section>
-  <div class="story-split">
-    <div class="img-wrap" data-reveal="left">
-      <img src="assets/restaurant/restaurant_view_pashupatinath.JPG" alt="Palagya Rooftop Restaurant"/>
-    </div>
-    <div data-reveal="right">
-      <div class="eyebrow"><span class="line"></span><span>Rooftop Dining</span></div>
-      <h2 class="sh">A taste of local <em>and international</em></h2>
-      <p>Unwind at our rooftop restaurant, enjoying panoramic views of the sacred Pashupatinath Temple and the lush golf course. Our culinary team serves exquisite local tastes, traditional Nepali flavors, and popular international cuisines in a warm, welcoming setting.</p>
-      <p>Whether it is a relaxed morning breakfast, an afternoon gathering, or an evening enjoying signature cocktails and premium hookah lounge vibes, Palagya's rooftop provides a perfect, serene escape.</p>
-      <div style="margin-top:24px;">
-        <a href="reservation.html" class="btn-primary">Reserve a Table</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Stats -->
-<section class="stats">
-  <div class="stats-grid">
-    <div data-reveal data-delay="1"><div class="stat-num" data-count="5">0</div><div class="stat-label">Min to Pashupatinath</div></div>
-    <div data-reveal data-delay="2"><div class="stat-num" data-count="10">0</div><div class="stat-label">Min to Airport</div></div>
-    <div data-reveal data-delay="3"><div class="stat-num" data-count="3">0</div><div class="stat-label">Room Categories</div></div>
-    <div data-reveal data-delay="4"><div class="stat-num" data-count="500">0</div><div class="stat-label">Banquet Capacity</div></div>
-  </div>
-</section>
-
-<!-- Quote -->
-<section class="quote-band" style="background:var(--paper);text-align:center;padding:80px 48px;">
-  <p class="q" data-reveal style="font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(1.8rem,3.6vw,2.8rem);color:var(--maroon);max-width:880px;margin:0 auto;line-height:1.4;">To stay at Palagya is to be received, not merely accommodated.</p>
 </section>
 
 <!-- CTA -->
@@ -463,7 +448,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
   <h2 data-reveal>Come, be our <em>guest</em></h2>
   <p data-reveal data-delay="1">Discover the rooms, the rooftop, and the rare quiet of a sanctuary beside the sacred.</p>
   <div class="cta-actions" data-reveal data-delay="2">
-    <a href="rooms.html" class="btn-primary">Explore Rooms</a>
+    <a href="index.html" class="btn-primary">Back to Home</a>
     <a href="reservation.html" class="btn-ghost">Reserve Your Stay</a>
   </div>
 </section>
@@ -523,11 +508,6 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{if(window.scrollY>60)nav.classList.add('solid');else nav.classList.remove('solid');});
 const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
 document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
-const eqIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');eqIo.unobserve(e.target);}});},{threshold:.5});
-eqIo.observe(document.getElementById('equation'));
-function animateCount(el){const target=+el.dataset.count;const dur=1600;const start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,3);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);}
-const countIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);countIo.unobserve(e.target);}});},{threshold:.6});
-document.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
 function updateClock(){const now=new Date();const ktMs=now.getTime()+now.getTimezoneOffset()*60000+(5*60+45)*60000;const kt=new Date(ktMs);let h=kt.getHours(),m=kt.getMinutes();const ampm=h>=12?'PM':'AM';h=h%12||12;document.getElementById('ktTime').textContent=`${h}:${String(m).padStart(2,'0')} ${ampm}`;document.getElementById('ktDate').textContent=kt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
 updateClock();setInterval(updateClock,1000*30);
 </script>
