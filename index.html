@@ -13,46 +13,31 @@
 <style>
 /* ═══ Shared design system (matches about.html) ═══ */
 :root{
-  --cream:#F7F1E8;--cream2:#EFE6D6;--terracotta:#B8543A;--terracotta2:#9E4530;
-  --maroon:#5C1F1B;--maroon2:#451714;--gold:#C9A961;--gold2:#B89449;
-  --charcoal:#1A1410;--paper:#FBF7F0;
-  --text:#1A1410;--text2:#5A4F44;--text3:#8C7E6F;--on-dark:#F7F1E8;--on-dark2:rgba(247,241,232,.66);
+  /* Dwarikas-inspired palette — deep warm brown, warm ivory, aged gold */
+  --cream:#F5EFE3;--cream2:#EDE4D3;--terracotta:#8B3A2A;--terracotta2:#722E20;
+  --maroon:#42201A;--maroon2:#321510;--gold:#B8974A;--gold2:#A07E38;
+  --charcoal:#1C1510;--paper:#FAF6EF;
+  --text:#1C1510;--text2:#52463A;--text3:#8A7A6A;
+  --on-dark:#F5EFE3;--on-dark2:rgba(245,239,227,.65);
   --display:'Fraunces',Georgia,serif;--body:'Lora',Georgia,serif;
-  --r-sm:8px;--r-md:14px;--r-lg:22px;--r-xl:32px;
-  --ease:cubic-bezier(.22,1,.36,1);--ease-soft:cubic-bezier(.4,0,.2,1);
-  --border:rgba(92,31,27,.14);
+  --r-sm:6px;--r-md:12px;--r-lg:20px;--r-xl:30px;
+  --ease:cubic-bezier(.16,1,.3,1);--ease-soft:cubic-bezier(.4,0,.2,1);
+  --border:rgba(66,32,26,.12);
+  /* smooth scroll */
+  scroll-behavior:smooth;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--cream);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+html{scroll-behavior:smooth;}
+* {will-change:auto;}
+body{font-family:var(--body);background:var(--cream);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;}
 a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-style:none}em{font-style:italic}
 
-/* Curtain */
-#curtain{
-  position:fixed;inset:0;z-index:9999;
-  background:var(--maroon);
-  background-image:url('assets/hero/hero_dawan_Pashupatinath Temple.jpg');
-  background-size:cover;background-position:center;
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;
-  transition:transform 1.2s var(--ease) .2s;
-}
-#curtain::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(92,31,27,.75),rgba(26,20,16,.85));
-  z-index:0;
-}
-#curtain.lift{transform:translateY(-100%);}
-.curtain-logo{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:0;opacity:0;animation:devaIn 1.3s var(--ease) .1s forwards;}
-.curtain-logo img{width:clamp(200px,62vw,520px);height:auto;max-height:65vh;object-fit:contain;display:block;filter:drop-shadow(0 8px 40px rgba(0,0,0,.5));}
-.curtain-line{position:relative;z-index:1;width:0;height:1px;background:var(--gold);animation:lineGrow 1s var(--ease) .9s forwards;}
-.curtain-sub{position:relative;z-index:1;font-family:var(--body);font-style:italic;color:var(--on-dark2);font-size:.95rem;letter-spacing:.3em;text-transform:uppercase;opacity:0;animation:fadeIn .8s ease 1.1s forwards;}
-@keyframes devaIn{0%{opacity:0;transform:translateY(20px) scale(.94);filter:blur(8px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
-@keyframes lineGrow{to{width:180px}}@keyframes fadeIn{to{opacity:1}}
+/* Curtain removed */
 
 /* Nav logo with image */
 .nav-logo{display:flex;align-items:center;line-height:1;}
-.nav-logo img{height:46px;width:auto;display:block;transition:filter .3s;}
-nav:not(.solid) .nav-logo img{filter:brightness(0) invert(1);opacity:1;}
+.nav-logo img{height:58px;width:auto;display:block;transition:filter .3s,opacity .3s;}
+nav:not(.solid) .nav-logo img{filter:drop-shadow(0 1px 4px rgba(0,0,0,.3));opacity:1;}
 nav.solid .nav-logo img{filter:none;opacity:1;}
 
 /* Nav */
@@ -90,10 +75,11 @@ nav.solid .nav-burger span{background:var(--text);}
 @keyframes heroZoom{to{transform:scale(1)}}
 .page-hero-content{position:relative;z-index:2;padding:0 48px;max-width:900px;color:var(--on-dark);}
 .page-hero .eyebrow span{color:var(--gold);}
-.page-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.02;letter-spacing:-.02em;opacity:0;animation:heroUp 1s var(--ease) 1.4s forwards;}
-.page-hero h1 em{font-style:italic;color:var(--gold);}
+.page-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(3rem,7.5vw,5.8rem);line-height:1.02;letter-spacing:-.02em;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.45);opacity:0;animation:heroUp 1s var(--ease) 1.4s forwards;}
+.page-hero h1 em{font-style:italic;color:#e8c97a;text-shadow:0 2px 16px rgba(0,0,0,.4);}
 .page-hero p{font-size:1.2rem;color:var(--on-dark2);max-width:580px;margin-top:22px;opacity:0;animation:heroUp 1s var(--ease) 1.6s forwards;line-height:1.8;}
 .page-hero .eyebrow{opacity:0;animation:heroUp 1s var(--ease) 1.2s forwards;}
+.page-hero .eyebrow span{color:#fff!important;font-weight:700;font-size:.9rem;letter-spacing:.3em;text-shadow:0 2px 12px rgba(0,0,0,.5);}
 @keyframes heroUp{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:translateY(0)}}
 
 /* Sections */
@@ -105,7 +91,7 @@ section{position:relative;padding:120px 48px;}
 h2.sh{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--maroon);}
 h2.sh em{font-style:italic;color:var(--terracotta);}
 
-[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease);}
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
 [data-reveal].in{opacity:1;transform:none;}
 [data-reveal="left"]{transform:translateX(-50px);}[data-reveal="left"].in{transform:none;}
 [data-reveal="right"]{transform:translateX(50px);}[data-reveal="right"].in{transform:none;}
@@ -119,7 +105,7 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 .story-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1280px;margin:0 auto;}
 .story-split .img-wrap{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;}
 .story-split .img-wrap img{width:100%;height:100%;object-fit:cover;}
-.story-split .img-wrap::after{content:'पलाग्या';position:absolute;bottom:24px;right:28px;font-family:var(--display);font-size:2rem;color:var(--cream);opacity:.8;}
+.story-split .img-wrap::after{content:'पालज्ञा';position:absolute;bottom:24px;right:28px;font-family:var(--display);font-size:2rem;color:var(--cream);opacity:.8;}
 .story-split h2{margin-bottom:26px;}
 .story-split p{color:var(--text2);font-size:1.08rem;line-height:1.9;margin-bottom:20px;}
 .story-split p strong{color:var(--maroon);}
@@ -298,8 +284,6 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 
 /* Dining carousel */
 .dining-carousel-wrap{overflow:hidden!important;position:relative;border-radius:var(--r-lg);aspect-ratio:4/5;}
-.dining-carousel-wrap::after{display:none!important;content:none!important;}
-.dining-carousel-wrap::after{display:none!important;}
 .dining-carousel{display:flex;width:100%;height:100%;will-change:transform;}
 .dc-slide{width:100%;height:100%;object-fit:cover;flex-shrink:0;}
 .dc-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:3;}
@@ -343,7 +327,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 
 @media(max-width:768px){.reviews-grid{grid-template-columns:1fr;}}
 
-@media(max-width:1024px){
+
   nav,section{padding-left:32px;padding-right:32px;}
   .nav-links{display:none;}.nav-burger{display:flex;}
   .page-hero-content{padding:0 32px;}
@@ -368,9 +352,6 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 </head>
 <body>
 
-<!-- Curtain -->
-<div id="curtain">
-  <div class="curtain-logo"><img src="logo.png" alt="Hotel Palagya"/></div>
   <div class="curtain-line"></div>
   <div class="curtain-sub">Palagya · Obedient</div>
 </div>
@@ -383,14 +364,13 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
     <li><a href="about.html">About</a></li>
     <li><a href="rooms.html">Rooms</a></li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="https://wa.me/9779851135639" target="_blank" rel="noopener" class="nav-whatsapp">
       <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.534 5.857L.054 23.5l5.824-1.53A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.374l-.36-.214-3.456.909.924-3.368-.234-.375A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
       WhatsApp
     </a></li>
   </ul>
   <div class="nav-actions">
-    <a href="reservation.html" class="nav-cta">Reserve</a>
     <div class="nav-burger" id="burger" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -403,8 +383,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
     <h1>You explore, <em>we welcome.</em></h1>
     <p>A serene refuge of Nepali hospitality in Tilganga, Kathmandu. Walk to the sacred Pashupatinath Temple or arrive from the airport in minutes.</p>
     <div style="margin-top:32px;display:flex;gap:16px;">
-      <a href="rooms.html" class="btn-primary">Explore Rooms</a>
-      <a href="reservation.html" class="btn-ghost">Reserve Now</a>
+      <a href="#rooms-section" class="btn-primary">Explore Rooms</a>
     </div>
   </div>
 </header>
@@ -427,7 +406,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 </div>
 
 <!-- Rooms teaser -->
-<section class="rooms-section">
+<section class="rooms-section" id="rooms-section">
   <div class="rooms-head" data-reveal>
     <div class="eyebrow center"><span class="line"></span><span>Accommodations</span><span class="line"></span></div>
     <h2 class="sh">Stay your <em>own way</em></h2>
@@ -522,15 +501,15 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
       <h2 class="sh">A taste of local <em>and international</em></h2>
       <p>Unwind at our rooftop restaurant, enjoying panoramic views of the sacred Pashupatinath Temple and the lush golf course. Our culinary team serves exquisite local tastes, traditional Nepali flavors, and popular international cuisines in a warm, welcoming setting.</p>
       <p>Whether it is a relaxed morning breakfast, an afternoon gathering, or an evening enjoying signature cocktails and premium hookah lounge vibes, Palagya's rooftop provides a perfect, serene escape.</p>
-      <div style="margin-top:24px;">
-        <a href="reservation.html" class="btn-primary">Reserve a Table</a>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+        <a href="https://wa.me/9779851135639?text=Hi%2C%20I%20would%20like%20to%20reserve%20a%20table%20at%20Hotel%20Palagya." target="_blank" rel="noopener" class="btn-primary">Reserve a Table</a><a href="#" class="btn-menu" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:14px 28px;border-radius:100px;font-family:var(--body);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:all .3s var(--ease);margin-left:12px;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--cream)';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">🍽 View Menu</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Reviews -->
-<section class="reviews-section">
+<section class="reviews-section" id="reviews">
   <div class="reviews-head" data-reveal>
     <div class="eyebrow center"><span class="line"></span><span>Guest Reviews</span><span class="line"></span></div>
     <h2 class="sh">What our <em>guests say</em></h2>
@@ -619,8 +598,9 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 
   </div>
 
-  <div class="review-cta" data-reveal>
+  <div class="review-cta" data-reveal style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:48px;">
     <a href="https://www.tripadvisor.com/Hotel_Review-g293890-d3314300-Reviews-Palagya_Hotel-Kathmandu_Kathmandu_Valley_Bagmati_Zone_Central_Region.html" target="_blank" rel="noopener">Read all 108 reviews on Tripadvisor →</a>
+    <a href="https://www.google.com/travel/search?q=hotel%20palagya" target="_blank" rel="noopener" style="color:var(--terracotta);">Read Reviews on Google →</a>
   </div>
 </section>
 
@@ -644,7 +624,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
   <h2 data-reveal>Come, be our <em>guest</em></h2>
   <p data-reveal data-delay="1">Discover the rooms, the rooftop, and the rare quiet of a sanctuary beside the sacred.</p>
   <div class="cta-actions" data-reveal data-delay="2">
-    <a href="rooms.html" class="btn-primary">Explore Rooms</a>
+    <a href="#rooms-section" class="btn-primary">Explore Rooms</a>
     <a href="reservation.html" class="btn-ghost">Reserve Your Stay</a>
   </div>
 </section>
@@ -653,7 +633,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 <footer>
   <div class="foot-grid">
     <div class="foot-brand">
-      <a href="index.html" style="display:inline-block;margin-bottom:16px;"><img src="logo.png" alt="Hotel Palagya" style="height:60px;width:auto;filter:brightness(0) invert(1);opacity:.9;display:block;"/></a>
+      <a href="index.html" style="display:inline-block;margin-bottom:16px;"><img src="logo.png" alt="Hotel Palagya" style="height:72px;width:auto;display:block;"/></a>
       <p>A sanctuary of Nepali hospitality in Tilganga, Kathmandu — five minutes from Pashupatinath, ten from the airport.</p>
     </div>
     <div class="foot-col">
@@ -662,7 +642,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
         <li><a href="about.html">About Us</a></li>
         <li><a href="rooms.html">Rooms</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="reservation.html">Reservation</a></li>
       </ul>
     </div>
@@ -696,29 +676,67 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 </footer>
 
 <script>
-window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('curtain').classList.add('lift'),1700);});
+// ── Smooth anchor scrolling (offset for fixed nav) ──────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const target=document.querySelector(this.getAttribute('href'));
+    if(!target)return;
+    e.preventDefault();
+    const navH=document.getElementById('nav').offsetHeight;
+    const top=target.getBoundingClientRect().top+window.scrollY-navH-16;
+    window.scrollTo({top,behavior:'smooth'});
+    document.getElementById('nav').classList.remove('open');
+  });
+});
+
+// ── Nav ─────────────────────────────────────────────────────────────────
 function toggleNav(){document.getElementById('nav').classList.toggle('open');}
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+document.querySelectorAll('.nav-links a:not([href^="#"])').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{if(window.scrollY>60)nav.classList.add('solid');else nav.classList.remove('solid');});
-const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  if(s>60)nav.classList.add('solid');else nav.classList.remove('solid');
+  lastScroll=s;
+},{passive:true});
+
+// ── Reveal on scroll ─────────────────────────────────────────────────────
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      const delay=+(e.target.dataset.delay||0)*120;
+      setTimeout(()=>e.target.classList.add('in'),delay);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
-const eqIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');eqIo.unobserve(e.target);}});},{threshold:.5});
-eqIo.observe(document.getElementById('equation'));
-function animateCount(el){const target=+el.dataset.count;const dur=1600;const start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,3);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(tick);}requestAnimationFrame(tick);}
-const countIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);countIo.unobserve(e.target);}});},{threshold:.6});
+
+// ── Equation reveal ──────────────────────────────────────────────────────
+const eqEl=document.getElementById('equation');
+if(eqEl){const eqIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');eqIo.unobserve(e.target);}});},{threshold:.5});eqIo.observe(eqEl);}
+
+// ── Count-up numbers ─────────────────────────────────────────────────────
+function animateCount(el){
+  const target=+el.dataset.count;const dur=1800;const start=performance.now();
+  function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,4);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);
+}
+const countIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);countIo.unobserve(e.target);}});},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
+
+// ── Kathmandu clock ──────────────────────────────────────────────────────
 function updateClock(){const now=new Date();const ktMs=now.getTime()+now.getTimezoneOffset()*60000+(5*60+45)*60000;const kt=new Date(ktMs);let h=kt.getHours(),m=kt.getMinutes();const ampm=h>=12?'PM':'AM';h=h%12||12;document.getElementById('ktTime').textContent=`${h}:${String(m).padStart(2,'0')} ${ampm}`;document.getElementById('ktDate').textContent=kt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
 updateClock();setInterval(updateClock,1000*30);
 
-// Dining carousel
+// ── Dining carousel ──────────────────────────────────────────────────────
 (function(){
   const carousel=document.getElementById('diningCarousel');
   const dotsEl=document.getElementById('dcDots');
   if(!carousel)return;
   const slides=carousel.querySelectorAll('.dc-slide');
   const total=slides.length;
-  let current=0,timer=null;
+  let current=0,timer=null,animating=false;
   slides.forEach((_,i)=>{
     const d=document.createElement('button');
     d.className='dc-dot'+(i===0?' active':'');
@@ -727,13 +745,16 @@ updateClock();setInterval(updateClock,1000*30);
     dotsEl.appendChild(d);
   });
   function goTo(n){
+    if(animating)return;
+    animating=true;
     current=(n+total)%total;
-    carousel.style.transition='transform .75s cubic-bezier(.22,1,.36,1)';
+    carousel.style.transition='transform .8s cubic-bezier(.16,1,.3,1)';
     carousel.style.transform='translateX(-'+(current*100)+'%)';
     dotsEl.querySelectorAll('.dc-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
     resetTimer();
+    setTimeout(()=>animating=false,820);
   }
-  function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(current+1),3800);}
+  function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(current+1),4200);}
   window.diningNav=function(dir){goTo(current+dir);};
   resetTimer();
 })();
