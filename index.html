@@ -32,7 +32,16 @@ html{scroll-behavior:smooth;}
 body{font-family:var(--body);background:var(--cream);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;}
 a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-style:none}em{font-style:italic}
 
-/* Curtain removed */
+/* Curtain — index.html only */
+#curtain{position:fixed;inset:0;z-index:9999;background:var(--maroon);background-image:url('assets/hero/hero_dawan_Pashupatinath Temple.jpg');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:transform 1.2s cubic-bezier(.16,1,.3,1) .2s;}
+#curtain::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(66,32,26,.72),rgba(26,20,16,.82));z-index:0;}
+#curtain.lift{transform:translateY(-100%);}
+.curtain-logo-wrap{position:relative;z-index:1;opacity:0;animation:ctFadeIn 1.2s cubic-bezier(.16,1,.3,1) .15s forwards;}
+.curtain-logo-wrap img{width:clamp(220px,65vw,560px);max-height:68vh;object-fit:contain;display:block;filter:drop-shadow(0 8px 40px rgba(0,0,0,.45));}
+.curtain-line{position:relative;z-index:1;width:0;height:1px;background:var(--gold);animation:ctLine 1s cubic-bezier(.16,1,.3,1) .9s forwards;}
+.curtain-sub{position:relative;z-index:1;font-family:var(--body);font-style:italic;color:rgba(245,239,227,.7);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;opacity:0;animation:ctFadeIn .8s ease 1.15s forwards;}
+@keyframes ctFadeIn{to{opacity:1}}
+@keyframes ctLine{to{width:160px}}
 
 /* Nav logo with image */
 .nav-logo{display:flex;align-items:center;line-height:1;}
@@ -352,6 +361,13 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 </style>
 </head>
 <body>
+
+<!-- Curtain (index only) -->
+<div id="curtain">
+  <div class="curtain-logo-wrap"><img src="logo.png" alt="Hotel Palagya"/></div>
+  <div class="curtain-line"></div>
+  <div class="curtain-sub">पालज्ञा · Obedient</div>
+</div>
 
 <!-- Nav -->
 <nav id="nav">
@@ -673,6 +689,8 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 </footer>
 
 <script>
+window.addEventListener('load',()=>{setTimeout(()=>{const c=document.getElementById('curtain');if(c)c.classList.add('lift');},1800);});
+
 // ── Smooth anchor scrolling (offset for fixed nav) ──────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
