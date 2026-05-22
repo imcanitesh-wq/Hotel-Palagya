@@ -70,7 +70,7 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 .story-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1280px;margin:0 auto;}
 .story-split .img-wrap{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;}
 .story-split .img-wrap img{width:100%;height:100%;object-fit:cover;}
-.story-split .img-wrap::after{content:'पलाग्या';position:absolute;bottom:24px;right:28px;font-family:var(--display);font-size:2rem;color:var(--cream);opacity:.8;}
+.story-split .img-wrap::after{display:none;}
 .story-split h2{margin-bottom:26px;}
 .story-split p{color:var(--text2);font-size:1.08rem;line-height:1.9;margin-bottom:20px;}
 .story-split p strong{color:var(--maroon);}
@@ -131,12 +131,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 .foot-col ul li{margin-bottom:12px;}
 .foot-col ul li a,.foot-col ul li{color:var(--on-dark2);font-size:.95rem;transition:color .3s;}
 .foot-col ul li a:hover{color:var(--cream);}
-.foot-clock{background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.2);border-radius:var(--r-md);padding:22px 24px;}
-.foot-clock .ck-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.foot-clock .ck-time{font-family:var(--display);font-size:2.4rem;font-weight:300;color:var(--cream);line-height:1;letter-spacing:.02em;}
-.foot-clock .ck-date{font-size:.85rem;color:var(--on-dark2);margin-top:8px;}
-.foot-clock .ck-sun{display:flex;gap:18px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(201,169,97,.15);font-size:.8rem;color:var(--on-dark2);}
-.foot-clock .ck-sun b{color:var(--gold);font-weight:500;}
+
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;max-width:1280px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(247,241,232,.1);}
 .foot-bottom p{font-size:.85rem;color:var(--on-dark2);}
 .foot-social{display:flex;gap:16px;}
@@ -191,7 +186,7 @@ nav.solid .nav-burger span{background:var(--text);}
 <body>
 
 <!-- Curtain -->
-  <div class="curtain-sub">Palagya · Obedient</div>
+  
 </div>
 
 <!-- Nav -->
@@ -308,9 +303,8 @@ nav.solid .nav-burger span{background:var(--text);}
 <!-- Footer -->
 <footer>
   <div class="foot-grid">
-    <div class="foot-brand">
-      <span class="deva">पलाग्या</span>
-      <div class="name">Hotel Palagya</div>
+        <div class="foot-brand">
+      <a href="index.html" style="display:inline-block;margin-bottom:16px;"><img src="logo.png" alt="Hotel Palagya" style="height:70px;width:auto;display:block;"/></a>
       <p>A sanctuary of Nepali hospitality in Tilganga, Kathmandu — five minutes from Pashupatinath, ten from the airport.</p>
     </div>
     <div class="foot-col">
@@ -334,12 +328,19 @@ nav.solid .nav-burger span{background:var(--text);}
       </ul>
     </div>
     <div class="foot-col">
-      <div class="foot-clock">
-        <div class="ck-label">Kathmandu Time</div>
-        <div class="ck-time" id="ktTime">--:--</div>
-        <div class="ck-date" id="ktDate">—</div>
-        <div class="ck-sun"><span>☀ Sunrise <b>5:42</b></span><span>☾ Sunset <b>6:48</b></span></div>
+      <h4>Find Us</h4>
+      <div style="margin-top:4px;border-radius:10px;overflow:hidden;border:1px solid rgba(201,169,97,.2);">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.0!2d85.3489!3d27.7099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19efa5b1e8b5%3A0xd62fce3d653d5b00!2sPalagya%20Hotel!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+          width="100%" height="170" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Hotel Palagya on Google Maps">
+        </iframe>
       </div>
+      <a href="https://maps.google.com/?q=Palagya+Hotel+Kathmandu" target="_blank" rel="noopener"
+         style="display:inline-block;margin-top:10px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;">
+        Open in Google Maps →
+      </a>
+    </div>
     </div>
   </div>
   <div class="foot-bottom">

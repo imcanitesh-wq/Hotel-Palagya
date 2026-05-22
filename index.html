@@ -114,7 +114,7 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 .story-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1280px;margin:0 auto;}
 .story-split .img-wrap{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;}
 .story-split .img-wrap img{width:100%;height:100%;object-fit:cover;}
-.story-split .img-wrap::after{content:'पालज्ञा';position:absolute;bottom:24px;right:28px;font-family:var(--display);font-size:2rem;color:var(--cream);opacity:.8;}
+.story-split .img-wrap::after{display:none;}
 .story-split h2{margin-bottom:26px;}
 .story-split p{color:var(--text2);font-size:1.08rem;line-height:1.9;margin-bottom:20px;}
 .story-split p strong{color:var(--maroon);}
@@ -259,7 +259,7 @@ h2.sh em{font-style:italic;color:var(--terracotta);}
 .stat-label{font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark2);margin-top:12px;}
 
 /* CTA + footer (shared) */
-.cta{position:relative;text-align:center;padding:130px 48px;overflow:hidden;background-image:linear-gradient(rgba(26,20,16,.62),rgba(92,31,27,.7)),url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2400&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed;}
+.cta{position:relative;text-align:center;padding:130px 48px;overflow:hidden;background-image:linear-gradient(rgba(26,20,16,.62),rgba(92,31,27,.7)),url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2400&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:scroll;}
 .cta h2{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,5vw,4rem);color:var(--cream);line-height:1.1;margin-bottom:24px;}
 .cta h2 em{font-style:italic;color:var(--gold);}
 .cta p{color:var(--on-dark2);font-size:1.1rem;max-width:540px;margin:0 auto 40px;}
@@ -278,12 +278,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 .foot-col ul li{margin-bottom:12px;}
 .foot-col ul li a,.foot-col ul li{color:var(--on-dark2);font-size:.95rem;transition:color .3s;}
 .foot-col ul li a:hover{color:var(--cream);}
-.foot-clock{background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.2);border-radius:var(--r-md);padding:22px 24px;}
-.foot-clock .ck-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.foot-clock .ck-time{font-family:var(--display);font-size:2.4rem;font-weight:300;color:var(--cream);line-height:1;letter-spacing:.02em;}
-.foot-clock .ck-date{font-size:.85rem;color:var(--on-dark2);margin-top:8px;}
-.foot-clock .ck-sun{display:flex;gap:18px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(201,169,97,.15);font-size:.8rem;color:var(--on-dark2);}
-.foot-clock .ck-sun b{color:var(--gold);font-weight:500;}
+
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;max-width:1280px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(247,241,232,.1);}
 .foot-bottom p{font-size:.85rem;color:var(--on-dark2);}
 .foot-social{display:flex;gap:16px;}
@@ -366,7 +361,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
 <div id="curtain">
   <div class="curtain-logo-wrap"><img src="logo.png" alt="Hotel Palagya"/></div>
   <div class="curtain-line"></div>
-  <div class="curtain-sub">पालज्ञा · Obedient</div>
+  <div class="curtain-sub">पालज्ञा · Palagya</div>
 </div>
 
 <!-- Nav -->
@@ -515,7 +510,7 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
       <p>Unwind at our rooftop restaurant, enjoying panoramic views of the sacred Pashupatinath Temple and the lush golf course. Our culinary team serves exquisite local tastes, traditional Nepali flavors, and popular international cuisines in a warm, welcoming setting.</p>
       <p>Whether it is a relaxed morning breakfast, an afternoon gathering, or an evening enjoying signature cocktails and premium hookah lounge vibes, Palagya's rooftop provides a perfect, serene escape.</p>
       <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-        <a href="https://wa.me/9779851135639?text=Hi%2C%20I%20would%20like%20to%20reserve%20a%20table%20at%20Hotel%20Palagya." target="_blank" rel="noopener" class="btn-primary">Reserve a Table</a><a href="#" class="btn-menu" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:14px 28px;border-radius:100px;font-family:var(--body);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:all .3s var(--ease);margin-left:12px;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--cream)';" onmouseout="this.style.background='transparent';this.style.color='var(--gold)';">🍽 View Menu</a>
+        <a href="https://wa.me/9779851135639?text=Hi%2C%20I%20would%20like%20to%20reserve%20a%20table%20at%20Hotel%20Palagya." target="_blank" rel="noopener" class="btn-primary">Reserve a Table</a><a href="#" class="btn-primary" style="background:var(--gold);box-shadow:0 8px 30px rgba(184,151,74,.3);">🍽 View Menu</a>
       </div>
     </div>
   </div>
@@ -670,12 +665,19 @@ footer{background:var(--charcoal);color:var(--on-dark);padding:80px 48px 36px;}
       </ul>
     </div>
     <div class="foot-col">
-      <div class="foot-clock">
-        <div class="ck-label">Kathmandu Time</div>
-        <div class="ck-time" id="ktTime">--:--</div>
-        <div class="ck-date" id="ktDate">—</div>
-        <div class="ck-sun"><span>☀ Sunrise <b>5:42</b></span><span>☾ Sunset <b>6:48</b></span></div>
+      <h4>Find Us</h4>
+      <div style="margin-top:4px;border-radius:10px;overflow:hidden;border:1px solid rgba(201,169,97,.2);">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.0!2d85.3489!3d27.7099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19efa5b1e8b5%3A0xd62fce3d653d5b00!2sPalagya%20Hotel!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+          width="100%" height="170" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Hotel Palagya on Google Maps">
+        </iframe>
       </div>
+      <a href="https://maps.google.com/?q=Palagya+Hotel+Kathmandu" target="_blank" rel="noopener"
+         style="display:inline-block;margin-top:10px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;">
+        Open in Google Maps →
+      </a>
+    </div>
     </div>
   </div>
   <div class="foot-bottom">
@@ -740,9 +742,7 @@ function animateCount(el){
 const countIo=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);countIo.unobserve(e.target);}});},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
 
-// ── Kathmandu clock ──────────────────────────────────────────────────────
-function updateClock(){const now=new Date();const ktMs=now.getTime()+now.getTimezoneOffset()*60000+(5*60+45)*60000;const kt=new Date(ktMs);let h=kt.getHours(),m=kt.getMinutes();const ampm=h>=12?'PM':'AM';h=h%12||12;document.getElementById('ktTime').textContent=`${h}:${String(m).padStart(2,'0')} ${ampm}`;document.getElementById('ktDate').textContent=kt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
-updateClock();setInterval(updateClock,1000*30);
+
 
 // ── Dining carousel ──────────────────────────────────────────────────────
 (function(){
