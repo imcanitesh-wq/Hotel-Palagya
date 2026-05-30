@@ -424,12 +424,14 @@ h2.section-title em { font-style: italic; color: var(--rust); }
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover;
   opacity: 0;
-  transition: opacity .9s var(--ease);
+  transition: opacity 1.1s cubic-bezier(.16,1,.3,1);
+  will-change: opacity;
 }
-.rc-slide.active { opacity: 1; }
+.rc-slide.active  { opacity: 1; z-index: 1; }
+.rc-slide.leaving { opacity: 0; z-index: 2; transition: opacity 1.1s cubic-bezier(.4,0,1,1); }
 .rc-dots {
   position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 5px; z-index: 2;
+  display: flex; gap: 5px; z-index: 3;
 }
 .rc-dot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -982,10 +984,10 @@ footer {
         <div class="room-img room-carousel" data-room="deluxe">
           <span class="room-tag">Featured</span>
           <div class="rc-track">
-            <img src="assets/rooms/deluxe_room_1.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide active"/>
-            <img src="assets/rooms/deluxe_room_2.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide"/>
-            <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide"/>
-            <img src="assets/rooms/deluxe_room_4.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/deluxe_room_1.JPG" alt="Deluxe Room" class="rc-slide active"/>
+            <img src="assets/rooms/deluxe_room_2.JPG" alt="Deluxe Room" class="rc-slide"/>
+            <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room" class="rc-slide"/>
+            <img src="assets/rooms/deluxe_room_4.JPG" alt="Deluxe Room" class="rc-slide"/>
           </div>
           <div class="rc-dots"></div>
         </div>
@@ -1007,10 +1009,10 @@ footer {
       <div class="room-card" data-r data-d="2">
         <div class="room-img room-carousel" data-room="superior">
           <div class="rc-track">
-            <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide active"/>
-            <img src="assets/rooms/superior_deluxe_room_2.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide"/>
-            <img src="assets/rooms/superior_deluxe_room_3.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide"/>
-            <img src="assets/rooms/superior_deluxe_room_4.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room" class="rc-slide active"/>
+            <img src="assets/rooms/superior_deluxe_room_2.JPG" alt="Superior Deluxe Room" class="rc-slide"/>
+            <img src="assets/rooms/superior_deluxe_room_3.JPG" alt="Superior Deluxe Room" class="rc-slide"/>
+            <img src="assets/rooms/superior_deluxe_room_4.JPG" alt="Superior Deluxe Room" class="rc-slide"/>
           </div>
           <div class="rc-dots"></div>
         </div>
@@ -1032,10 +1034,10 @@ footer {
       <div class="room-card" data-r data-d="3">
         <div class="room-img room-carousel" data-room="quad">
           <div class="rc-track">
-            <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide active"/>
-            <img src="assets/rooms/quad_deluxe_room_2.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide"/>
-            <img src="assets/rooms/quad_deluxe_room_3.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide"/>
-            <img src="assets/rooms/quad_deluxe_room_4.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room" class="rc-slide active"/>
+            <img src="assets/rooms/quad_deluxe_room_2.JPG" alt="Quad Deluxe Room" class="rc-slide"/>
+            <img src="assets/rooms/quad_deluxe_room_3.JPG" alt="Quad Deluxe Room" class="rc-slide"/>
+            <img src="assets/rooms/quad_deluxe_room_4.JPG" alt="Quad Deluxe Room" class="rc-slide"/>
           </div>
           <div class="rc-dots"></div>
         </div>
@@ -1441,49 +1443,94 @@ lb.addEventListener('touchend',   e => {
 
 // ── ROOM IMAGE CAROUSELS ──────────────────────────
 document.querySelectorAll('.room-carousel').forEach(carousel => {
-  const slides = carousel.querySelectorAll('.rc-slide');
-  const dotsEl = carousel.querySelector('.rc-dots');
-  if (!slides.length) return;
+  const allSlides = [...carousel.querySelectorAll('.rc-slide')];
+  const dotsEl    = carousel.querySelector('.rc-dots');
+  if (!allSlides.length) return;
 
-  // Build dots
-  slides.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'rc-dot' + (i === 0 ? ' on' : '');
-    d.setAttribute('aria-label', 'Slide ' + (i + 1));
-    d.addEventListener('click', e => { e.stopPropagation(); go(i); });
-    dotsEl.appendChild(d);
-  });
+  // Filter out images that fail to load (missing files)
+  let slides = allSlides;
+  let cur = 0, timer = null, busy = false;
 
-  // Hide dots if only 1 image loaded (missing files gracefully degrade)
-  let cur = 0, timer = null;
-  const dots = dotsEl.querySelectorAll('.rc-dot');
+  // Preload all images first; filter broken ones; then build dots + start
+  let loaded = 0;
+  const total = allSlides.length;
+
+  function init() {
+    // Keep only slides whose image successfully loaded
+    slides = allSlides.filter(img => img.naturalWidth > 0);
+    if (slides.length < 2) return; // nothing to carousel
+
+    // Make sure first slide is visible, rest hidden
+    slides.forEach((img, i) => {
+      img.style.opacity = i === 0 ? '1' : '0';
+      img.classList.toggle('active', i === 0);
+    });
+    cur = 0;
+
+    // Build dots
+    dotsEl.innerHTML = '';
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'rc-dot' + (i === 0 ? ' on' : '');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', e => { e.stopPropagation(); go(i); });
+      dotsEl.appendChild(d);
+    });
+
+    startTimer();
+  }
 
   function go(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('on');
+    if (busy || n === cur) return;
+    busy = true;
+    const prev = slides[cur];
     cur = (n + slides.length) % slides.length;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('on');
-  }
+    const next = slides[cur];
 
-  function reset() {
-    clearInterval(timer);
-    timer = setInterval(() => go(cur + 1), 3800);
-  }
+    // Cross-dissolve: bring next UP while prev fades out simultaneously
+    next.style.transition = 'none';
+    next.style.opacity = '0';
+    next.style.zIndex  = '1';
+    prev.style.zIndex  = '2';
 
-  // Pause on hover, resume on leave
-  carousel.addEventListener('mouseenter', () => clearInterval(timer));
-  carousel.addEventListener('mouseleave', reset);
+    // Force reflow so transition triggers properly
+    next.getBoundingClientRect();
 
-  // Only show dots & autoplay if there are multiple real images
-  // (images that fail to load are skipped gracefully via onerror)
-  slides.forEach(img => {
-    img.addEventListener('error', function() {
-      this.parentElement && this.classList.add('rc-broken');
+    next.style.transition = 'opacity 1.1s cubic-bezier(.16,1,.3,1)';
+    prev.style.transition = 'opacity 1.1s cubic-bezier(.4,0,1,1)';
+
+    requestAnimationFrame(() => {
+      next.style.opacity = '1';
+      prev.style.opacity = '0';
     });
-  });
 
-  reset();
+    dotsEl.querySelectorAll('.rc-dot').forEach((d, i) => d.classList.toggle('on', i === cur));
+
+    setTimeout(() => {
+      prev.style.zIndex = '1';
+      busy = false;
+    }, 1150);
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => go(cur + 1), 4000);
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', () => startTimer());
+
+  // Preload: wait for all images, then init
+  allSlides.forEach(img => {
+    if (img.complete) {
+      loaded++;
+      if (loaded === total) init();
+    } else {
+      img.addEventListener('load',  () => { loaded++; if (loaded === total) init(); });
+      img.addEventListener('error', () => { loaded++; if (loaded === total) init(); });
+    }
+  });
 });
 
 // ── DINING CAROUSEL ───────────────────────────────
