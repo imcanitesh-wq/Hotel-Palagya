@@ -416,6 +416,33 @@ h2.section-title em { font-style: italic; color: var(--rust); }
   transition: transform .9s var(--ease);
 }
 .room-card:hover .room-img img { transform: scale(1.05); }
+
+/* ── ROOM IMAGE CAROUSEL ────────────────────────── */
+.room-carousel { position: relative; }
+.rc-track { position: absolute; inset: 0; }
+.rc-slide {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0;
+  transition: opacity .9s var(--ease);
+}
+.rc-slide.active { opacity: 1; }
+.rc-dots {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px; z-index: 2;
+}
+.rc-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(244,237,224,.45);
+  border: 1px solid rgba(244,237,224,.6);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+.rc-dot.on {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.25);
+}
 .room-tag {
   position: absolute; top: 16px; left: 16px;
   background: var(--ink2); color: var(--gold);
@@ -952,9 +979,15 @@ footer {
     </div>
     <div class="rooms-grid">
       <div class="room-card" data-r data-d="1">
-        <div class="room-img">
+        <div class="room-img room-carousel" data-room="deluxe">
           <span class="room-tag">Featured</span>
-          <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room" loading="lazy"/>
+          <div class="rc-track">
+            <img src="assets/rooms/deluxe_room_1.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide active"/>
+            <img src="assets/rooms/deluxe_room_2.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/deluxe_room_3.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/deluxe_room_4.JPG" alt="Deluxe Room" loading="lazy" class="rc-slide"/>
+          </div>
+          <div class="rc-dots"></div>
         </div>
         <div class="room-body">
           <h3 class="room-name">Deluxe Room</h3>
@@ -972,8 +1005,14 @@ footer {
         </div>
       </div>
       <div class="room-card" data-r data-d="2">
-        <div class="room-img">
-          <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room" loading="lazy"/>
+        <div class="room-img room-carousel" data-room="superior">
+          <div class="rc-track">
+            <img src="assets/rooms/superior_deluxe_room_1.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide active"/>
+            <img src="assets/rooms/superior_deluxe_room_2.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/superior_deluxe_room_3.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/superior_deluxe_room_4.JPG" alt="Superior Deluxe Room" loading="lazy" class="rc-slide"/>
+          </div>
+          <div class="rc-dots"></div>
         </div>
         <div class="room-body">
           <h3 class="room-name">Superior Deluxe Room</h3>
@@ -991,8 +1030,14 @@ footer {
         </div>
       </div>
       <div class="room-card" data-r data-d="3">
-        <div class="room-img">
-          <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room" loading="lazy"/>
+        <div class="room-img room-carousel" data-room="quad">
+          <div class="rc-track">
+            <img src="assets/rooms/quad_deluxe_room_1.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide active"/>
+            <img src="assets/rooms/quad_deluxe_room_2.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/quad_deluxe_room_3.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide"/>
+            <img src="assets/rooms/quad_deluxe_room_4.JPG" alt="Quad Deluxe Room" loading="lazy" class="rc-slide"/>
+          </div>
+          <div class="rc-dots"></div>
         </div>
         <div class="room-body">
           <h3 class="room-name">Quad Deluxe Room</h3>
@@ -1393,6 +1438,53 @@ lb.addEventListener('touchend',   e => {
   const dx = e.changedTouches[0].clientX - tx;
   if (Math.abs(dx) > 50) lbNav(dx < 0 ? 1 : -1);
 }, { passive: true });
+
+// ── ROOM IMAGE CAROUSELS ──────────────────────────
+document.querySelectorAll('.room-carousel').forEach(carousel => {
+  const slides = carousel.querySelectorAll('.rc-slide');
+  const dotsEl = carousel.querySelector('.rc-dots');
+  if (!slides.length) return;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'rc-dot' + (i === 0 ? ' on' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', e => { e.stopPropagation(); go(i); });
+    dotsEl.appendChild(d);
+  });
+
+  // Hide dots if only 1 image loaded (missing files gracefully degrade)
+  let cur = 0, timer = null;
+  const dots = dotsEl.querySelectorAll('.rc-dot');
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('on');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('on');
+  }
+
+  function reset() {
+    clearInterval(timer);
+    timer = setInterval(() => go(cur + 1), 3800);
+  }
+
+  // Pause on hover, resume on leave
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', reset);
+
+  // Only show dots & autoplay if there are multiple real images
+  // (images that fail to load are skipped gracefully via onerror)
+  slides.forEach(img => {
+    img.addEventListener('error', function() {
+      this.parentElement && this.classList.add('rc-broken');
+    });
+  });
+
+  reset();
+});
 
 // ── DINING CAROUSEL ───────────────────────────────
 (function() {
