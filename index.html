@@ -145,29 +145,63 @@ em { font-style: italic; }
 
 .nav-wa {
   display: inline-flex; align-items: center; gap: 7px;
-  background: #25D366; color: #fff !important;
-  padding: 9px 18px; border-radius: 100px;
-  font-family: var(--sans); font-size: .72rem;
+  background: #fff;
+  border: 1.5px solid #25D366;
+  color: #25D366 !important;
+  padding: 8px 18px; border-radius: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: .75rem;
   font-weight: 600; letter-spacing: normal; text-transform: none;
-  transition: background .3s, transform .3s var(--ease);
+  transition: all .3s var(--ease);
   white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(37, 211, 102, 0.12);
 }
-.nav-wa:hover { background: #20ba5a; transform: translateY(-2px); }
+.nav-wa:hover {
+  background: #25D366;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
 .nav-wa::after { display: none !important; }
-#nav:not(.scrolled) .nav-wa { color: #fff !important; }
+#nav:not(.scrolled) .nav-wa { color: #25D366 !important; }
+#nav:not(.scrolled) .nav-wa:hover { color: #fff !important; }
+
+.nav-wa .wa-bg {
+  fill: #fff;
+  transition: fill .3s var(--ease);
+}
+.nav-wa .wa-fg {
+  fill: #25D366;
+  transition: fill .3s var(--ease);
+}
+.nav-wa:hover .wa-bg {
+  fill: #25D366;
+}
+.nav-wa:hover .wa-fg {
+  fill: #fff;
+}
 
 .nav-call {
   display: inline-flex; align-items: center; gap: 7px;
-  background: var(--rust); color: var(--ivory) !important;
-  padding: 9px 18px; border-radius: 100px;
+  background: #fff;
+  border: 1.5px solid var(--rust);
+  color: var(--rust) !important;
+  padding: 8px 18px; border-radius: 100px;
   font-family: var(--sans); font-size: .72rem;
   font-weight: 600; letter-spacing: normal; text-transform: none;
-  transition: background .3s, transform .3s var(--ease);
+  transition: all .3s var(--ease);
   white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(122, 48, 32, 0.08);
 }
-.nav-call:hover { background: var(--rust2); transform: translateY(-2px); }
+.nav-call:hover {
+  background: var(--rust);
+  color: var(--ivory) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(122, 48, 32, 0.2);
+}
 .nav-call::after { display: none !important; }
-#nav:not(.scrolled) .nav-call { color: var(--ivory) !important; }
+#nav:not(.scrolled) .nav-call { color: var(--rust) !important; }
+#nav:not(.scrolled) .nav-call:hover { color: var(--ivory) !important; }
 
 .nav-burger {
   display: none; flex-direction: column; gap: 5px;
@@ -875,6 +909,12 @@ footer {
   background: #25D366;
   color: #fff !important;
 }
+#nav.open .nav-links a.nav-wa .wa-bg {
+  fill: #25D366 !important;
+}
+#nav.open .nav-links a.nav-wa .wa-fg {
+  fill: #fff !important;
+}
 #nav.open .nav-links a.nav-call {
   background: var(--rust);
   color: var(--ivory) !important;
@@ -942,7 +982,11 @@ footer {
       Call +977 9851135639
     </a></li>
     <li><a href="https://wa.me/9779851135639" target="_blank" rel="noopener" class="nav-wa">
-      <svg viewBox="0 0 16 16" fill="currentColor" width="13" height="13"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+      <svg viewBox="0 0 24 24" width="13" height="13" class="wa-icon">
+        <circle cx="12" cy="12" r="8.4" class="wa-bg"/>
+        <path class="wa-fg" d="M12.004 2C6.48 2 2 6.48 2 12.004c0 1.907.533 3.69 1.461 5.214L2 22l4.98-1.309c1.479.807 3.168 1.313 4.985 1.313 5.525 0 10.02-4.495 10.02-10.02C22.022 6.48 17.528 2 12.004 2zM12 20.357c-1.72 0-3.328-.475-4.71-1.303l-.338-.201-3.238.85.865-3.155-.22-.35A8.32 8.32 0 0 1 3.2 12c0-4.631 3.769-8.4 8.4-8.4 4.631 0 8.4 3.769 8.4 8.4 0 4.631-3.769 8.4-8.4 8.4z"/>
+        <path class="wa-fg" d="M15.93 12.983c-.22-.11-1.3-.642-1.503-.715-.202-.073-.35-.11-.497.11-.147.22-.57.715-.7.843-.13.128-.26.146-.48.036-.22-.11-.93-.342-1.77-1.092-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.014-.34.096-.45.1-.1.22-.24.33-.36.11-.12.15-.2.22-.34.07-.14.03-.26-.018-.36-.05-.11-.5-.1.68-1.636-.18-.433-.37-.373-.5-.38-.13-.007-.28-.007-.43-.007-.15 0-.4.056-.6.28-.2.22-.78.77-.78 1.88s.8 2.18.9 2.33c.1.15 1.58 2.42 3.83 3.39.536.23.953.37 1.28.47.54.17 1.03.15 1.42.09.43-.06 1.3-.53 1.48-1.04.18-.51.18-.95.13-1.04-.05-.09-.2-.14-.42-.25z"/>
+      </svg>
       WhatsApp
     </a></li>
   </ul>
